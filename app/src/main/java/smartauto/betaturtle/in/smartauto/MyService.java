@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class MyService extends Service {
 
+    int count = 0;
     @Override
     public IBinder onBind(Intent intent) {
         // TODO Auto-generated method stub
@@ -23,7 +24,8 @@ public class MyService extends Service {
 
     @Override
     public void onStart(Intent intent, int startId) {
-        Toast.makeText(this, " MyService Started", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, " MyService Started. Now "+ count, Toast.LENGTH_LONG).show();
+        count++;
     }
 
     @Override
