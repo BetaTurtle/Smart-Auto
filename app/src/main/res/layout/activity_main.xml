@@ -28,4 +28,14 @@
         android:layout_marginTop="42dp"
         android:text="Start Service" />
 
+    <Button
+        android:id="@+id/update_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/end"
+        android:layout_marginTop="44dp"
+        android:text="@string/action_update_profile" />
+
 </RelativeLayout>

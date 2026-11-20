@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,8 +23,10 @@ public class Main extends Activity implements OnClickListener {
         setContentView(R.layout.activity_main);
         Button start = (Button) findViewById(R.id.start);
         Button end = (Button) findViewById(R.id.end);
+        Button updateProfile = (Button) findViewById(R.id.update_profile);
         start.setOnClickListener(this);
         end.setOnClickListener(this);
+        updateProfile.setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +34,15 @@ public class Main extends Activity implements OnClickListener {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_profile) {
+            openProfileActivity();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -53,9 +65,16 @@ public class Main extends Activity implements OnClickListener {
             case R.id.end:
                 stopService(new Intent(this, MyService.class));
                 break;
+            case R.id.update_profile:
+                openProfileActivity();
+                break;
             default:
                 break;
         }
+    }
+
+    private void openProfileActivity() {
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
 }
